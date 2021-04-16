@@ -8,25 +8,25 @@ using its name or symbol or atomic number.
 ## Usage
 To print out the periodic table
 ```
-pt.py
+ptcl
 ```
 
 To search for a specific element's detail using its name:
 
 ```
-pt.py -N Hydrogen
+ptcl -N Hydrogen
 ```
 
 To search for a specific element's detail using its chemical symbol:
 
 ```
-pt.py -s H
+ptcl -s H
 ```
 
 To search for a specific element's detail using its atomic number:
 
 ```
-pt.py -n 1
+ptcl -n 1
 ```
 
 ## Acknowledgements
