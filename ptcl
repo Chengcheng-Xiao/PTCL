@@ -1,0 +1,132 @@
+#!/usr/bin/env python
+"""
+Periodic table from command line :)
+also, search and  print details of an element
+using its name or symbol or atomic number.
+
+Author: iconxicon@me.com
+"""
+from __future__ import print_function
+import argparse
+import csv
+import os
+
+# color class
+class bcolors:
+    RED    = '\033[1;31m'
+    CYAN   = '\033[96m'
+    YELLOW = '\033[93m'
+    GREEN  = '\033[92m'
+    BLUE   = '\033[94m'
+    ENDC   = '\033[0m'
+
+# Command line praser
+#----------------------------
+parser = argparse.ArgumentParser(description='Periodic table from command line.')
+parser.add_argument('-N', action='store', default=None, dest='name',
+                    help='Name of the element.')
+parser.add_argument('-s', action='store', default=None, dest='symbol',
+                    help='Symbol of the element.')
+parser.add_argument('-n', action='store', default=None, dest='number',
+                    help='Atomic number of the element.')
+prm = parser.parse_args()
+
+# Read in data
+script_dir = os.path.dirname(__file__)
+with open(script_dir+'/pt_data.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    data = []
+    for row in reader:
+        data.append(row)
+
+# convert csv data to a list of dictionaries
+# list index corresponds to atomic number
+data_list = []
+for i in range(1,len(data)):
+    data_tmp = {}
+    for j in range(20):
+        data_tmp[data[0][j]] = data[i][j]
+    data_list.append(data_tmp)
+
+# do we want to print table or details of one element?
+if prm.name == None and prm.symbol == None and prm.number == None:
+    details = False
+    print("")
+    print("                        Periodic Table of Elements  ")
+    print("")
+    print("    1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |10 |11 |12 |13 |14 |15 |16 |17 |18 |")
+    print("  -----                                                               -----")
+    print("1 | "+bcolors.RED+"H"+bcolors.ENDC+" |                                                               |"+bcolors.BLUE+"He"+bcolors.ENDC+" |")
+    print("  |---+----                                       --------------------+---|")
+    print("2 |"+bcolors.RED+"Li"+bcolors.ENDC+" |"+bcolors.RED+"Be"+bcolors.ENDC+" |                                       | "+bcolors.YELLOW+"B"+bcolors.ENDC+" | "+bcolors.YELLOW+"C"+bcolors.ENDC+" | "+bcolors.YELLOW+"N"+bcolors.ENDC+" | "+bcolors.YELLOW+"O"+bcolors.ENDC+" | "+bcolors.YELLOW+"F"+bcolors.ENDC+" |"+bcolors.BLUE+"Ne"+bcolors.ENDC+" |")
+    print("  |---+---|                                       |---+---+---+---+---+---|")
+    print("3 |"+bcolors.RED+"Na"+bcolors.ENDC+" |"+bcolors.RED+"Mg"+bcolors.ENDC+" |                                       |"+bcolors.YELLOW+"Al"+bcolors.ENDC+" |"+bcolors.YELLOW+"Si"+bcolors.ENDC+" | "+bcolors.YELLOW+"P"+bcolors.ENDC+" | "+bcolors.YELLOW+"S"+bcolors.ENDC+" |"+bcolors.YELLOW+"Cl"+bcolors.ENDC+" |"+bcolors.BLUE+"Ar"+bcolors.ENDC+" |")
+    print("  |---+---+---------------------------------------+---+---+---+---+---+---|")
+    print("4 | "+bcolors.RED+"K"+bcolors.ENDC+" |"+bcolors.RED+"Ca"+bcolors.ENDC+" |Sc |Ti | V |Cr |Mn |Fe |Co |Ni |Cu |Zn |"+bcolors.YELLOW+"Ga"+bcolors.ENDC+" |"+bcolors.YELLOW+"Ge"+bcolors.ENDC+" |"+bcolors.YELLOW+"As"+bcolors.ENDC+" |"+bcolors.YELLOW+"Se"+bcolors.ENDC+" |"+bcolors.YELLOW+"Br"+bcolors.ENDC+" |"+bcolors.BLUE+"Kr"+bcolors.ENDC+" |")
+    print("  |---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("5 |"+bcolors.RED+"Rb"+bcolors.ENDC+" |"+bcolors.RED+"Sr"+bcolors.ENDC+" | Y |Zr |Nb |Mo |Tc |Ru |Rh |Pd |Ag |Cd |"+bcolors.YELLOW+"In"+bcolors.ENDC+" |"+bcolors.YELLOW+"Sn"+bcolors.ENDC+" |"+bcolors.YELLOW+"Sb"+bcolors.ENDC+" |"+bcolors.YELLOW+"Te"+bcolors.ENDC+" | "+bcolors.YELLOW+"I"+bcolors.ENDC+" |"+bcolors.BLUE+"Xe"+bcolors.ENDC+" |")
+    print("  |---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("6 |"+bcolors.RED+"Cs"+bcolors.ENDC+" |"+bcolors.RED+"Ba"+bcolors.ENDC+" |LAN|Hf |Ta | W |Re |Os |Ir |Pt |Au |Hg |"+bcolors.YELLOW+"Tl"+bcolors.ENDC+" |"+bcolors.YELLOW+"Pb"+bcolors.ENDC+" |"+bcolors.YELLOW+"Bi"+bcolors.ENDC+" |"+bcolors.YELLOW+"Po"+bcolors.ENDC+" |"+bcolors.YELLOW+"At"+bcolors.ENDC+" |"+bcolors.BLUE+"Rn"+bcolors.ENDC+" |")
+    print("  |---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("7 |"+bcolors.RED+"Fr"+bcolors.ENDC+" |"+bcolors.RED+"Ra"+bcolors.ENDC+" |ACT|Rf |Db |Sb |Bh |Hs |Mt |Ds |Rg |Cn |"+bcolors.YELLOW+"Nh"+bcolors.ENDC+" |"+bcolors.YELLOW+"Fl"+bcolors.ENDC+" |"+bcolors.YELLOW+"Mc"+bcolors.ENDC+" |"+bcolors.YELLOW+"Lv"+bcolors.ENDC+" |"+bcolors.YELLOW+"Ts"+bcolors.ENDC+" |"+bcolors.BLUE+"Og"+bcolors.ENDC+" |")
+    print("  -------------------------------------------------------------------------")
+    print("")
+    print("              -------------------------------------------------------------")
+    print("   Lanthanide |"+bcolors.GREEN+"La"+bcolors.ENDC+" |"+bcolors.GREEN+"Ce"+bcolors.ENDC+" |"+bcolors.GREEN+"Pr"+bcolors.ENDC+" |"+bcolors.GREEN+"Nd"+bcolors.ENDC+" |"+bcolors.GREEN+"Pm"+bcolors.ENDC+" |"+bcolors.GREEN+"Sm"+bcolors.ENDC+" |"+bcolors.GREEN+"Eu"+bcolors.ENDC+" |"+bcolors.GREEN+"Gd"+bcolors.ENDC+" |"+bcolors.GREEN+"Tb"+bcolors.ENDC+" |"+bcolors.GREEN+"Dy"+bcolors.ENDC+" |"+bcolors.GREEN+"Ho"+bcolors.ENDC+" |"+bcolors.GREEN+"Er"+bcolors.ENDC+" |"+bcolors.GREEN+"Tm"+bcolors.ENDC+" |"+bcolors.GREEN+"Yb |"+bcolors.GREEN+"Lu"+bcolors.ENDC+" |")
+    print("              |---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
+    print("   Actinide   |"+bcolors.GREEN+"Ac"+bcolors.ENDC+" |"+bcolors.GREEN+"Th"+bcolors.ENDC+" |"+bcolors.GREEN+"Pa"+bcolors.ENDC+" | "+bcolors.GREEN+"U"+bcolors.ENDC+" |"+bcolors.GREEN+"Np"+bcolors.ENDC+" |"+bcolors.GREEN+"Pu"+bcolors.ENDC+" |"+bcolors.GREEN+"Am"+bcolors.ENDC+" |"+bcolors.GREEN+"Cm"+bcolors.ENDC+" |"+bcolors.GREEN+"Bk"+bcolors.ENDC+" |"+bcolors.GREEN+"Cf"+bcolors.ENDC+" |"+bcolors.GREEN+"Es"+bcolors.ENDC+" |"+bcolors.GREEN+"Fm"+bcolors.ENDC+" |"+bcolors.GREEN+"Md"+bcolors.ENDC+" |"+bcolors.GREEN+"No"+bcolors.ENDC+" |"+bcolors.GREEN+"Lw"+bcolors.ENDC+" |")
+    print("              -------------------------------------------------------------")
+    print("")
+
+# details
+elif prm.name != None and prm.symbol == None and prm.number == None:
+    details = True
+    # find index by name
+    a = [i['name'].lower() for i in data_list]
+    try:
+        index = a.index(prm.name.lower())
+    except ValueError:
+        print("\n** ERROR: Name not found")
+        exit()
+
+elif prm.name == None and prm.symbol != None and prm.number == None:
+    details = True
+    # find index by symbol
+    a = [i['symbol'].lower() for i in data_list]
+    try:
+        index = a.index(prm.symbol.lower())
+    except ValueError:
+        print("\n** ERROR: Symbol not found")
+        exit()
+
+elif prm.name == None and prm.symbol == None and prm.number != None:
+    details = True
+    # index starts from 0
+    index = prm.number - 1
+
+else:
+    print("\n** ERROR: Please only use one search parameter.[name | symbol | atomic number]")
+
+
+if details == True:
+    # use index to print data
+    print("%-28s %s %s" %("Atomic Number",            ":",  data_list[index]["atomicNumber"]))
+    print("%-28s %s %s" %("Symbol",                  ":",  data_list[index]["symbol"]))
+    print("%-28s %s %s" %("Name",                    ":",  data_list[index]["name"]))
+    print("%-28s %s %s" %("Atomic Mass",              ":",  data_list[index]["atomicMass"]))
+    print("%-28s %s %s" %("Cpk Hex Color",             ":",  data_list[index]["cpkHexColor"]))
+    print("%-28s %s %s" %("Electronic Configuration", ":",  data_list[index]["electronicConfiguration"]))
+    print("%-28s %s %s" %("Electron negativity",       ":",  data_list[index]["electronegativity"]))
+    print("%-28s %s %s" %("Atomic Radius",            ":",  data_list[index]["atomicRadius"]))
+    print("%-28s %s %s" %("Ion Radius",               ":",  data_list[index]["ionRadius"]))
+    print("%-28s %s %s" %("Van-der-Waals Radius",       ":",  data_list[index]["vanDelWaalsRadius"]))
+    print("%-28s %s %s" %("Ionization Energy",        ":",  data_list[index]["ionizationEnergy"]))
+    print("%-28s %s %s" %("Electron Affinity",        ":",  data_list[index]["electronAffinity"]))
+    print("%-28s %s %s" %("Oxidation States",         ":",  data_list[index]["oxidationStates"]))
+    print("%-28s %s %s" %("Standard State",           ":",  data_list[index]["standardState"]))
+    print("%-28s %s %s" %("Bonding Type",             ":",  data_list[index]["bondingType"]))
+    print("%-28s %s %s" %("Melting Point",            ":",  data_list[index]["meltingPoint"]))
+    print("%-28s %s %s" %("Boiling Point",            ":",  data_list[index]["boilingPoint"]))
+    print("%-28s %s %s" %("Density",                 ":",  data_list[index]["density"]))
+    print("%-28s %s %s" %("Group Block",              ":",  data_list[index]["groupBlock"]))
+    print("%-28s %s %s" %("Year Discovered",          ":",  data_list[index]["yearDiscovered"]))
