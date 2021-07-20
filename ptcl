@@ -102,7 +102,7 @@ elif prm.name == None and prm.symbol != None and prm.number == None:
 elif prm.name == None and prm.symbol == None and prm.number != None:
     details = True
     # index starts from 0
-    index = prm.number - 1
+    index = int(prm.number) - 1
 
 else:
     print("\n** ERROR: Please only use one search parameter.[name | symbol | atomic number]")
