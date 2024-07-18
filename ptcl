@@ -19,7 +19,7 @@ class bcolors:
     YELLOW = '\033[93m'
     GREEN  = '\033[92m'
     BLUE   = '\033[94m'
-    WHITE  = '\033[97m'
+    WHITE  = '\033[1;97m'
     ENDC   = '\033[0m'
 
 # Command line praser
@@ -54,12 +54,12 @@ for i in range(1,len(data)):
 if prm.name == None and prm.symbol == None and prm.number == None:
     details = False
     print("")
-    print("                        Periodic Table of Elements  ")
+    print("                        "+bcolors.WHITE+"Periodic Table of Elements"+bcolors.ENDC+"  ")
     print("")
-    print("    1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |10 |11 |12 |13 |14 |15 |16 |17 |18 |")
-    print("  -----                                                               -----")
+    print("  | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |10 |11 |12 |13 |14 |15 |16 |17 |18 |")
+    print("  +---+                                                               +---+")
     print("1 | "+bcolors.RED+"H"+bcolors.ENDC+" |                                                               |"+bcolors.BLUE+"He"+bcolors.ENDC+" |")
-    print("  |---+----                                       --------------------+---|")
+    print("  |---+---+                                       +-------------------+---|")
     print("2 |"+bcolors.RED+"Li"+bcolors.ENDC+" |"+bcolors.RED+"Be"+bcolors.ENDC+" |                                       | "+bcolors.YELLOW+"B"+bcolors.ENDC+" | "+bcolors.YELLOW+"C"+bcolors.ENDC+" | "+bcolors.YELLOW+"N"+bcolors.ENDC+" | "+bcolors.YELLOW+"O"+bcolors.ENDC+" | "+bcolors.YELLOW+"F"+bcolors.ENDC+" |"+bcolors.BLUE+"Ne"+bcolors.ENDC+" |")
     print("  |---+---|                                       |---+---+---+---+---+---|")
     print("3 |"+bcolors.RED+"Na"+bcolors.ENDC+" |"+bcolors.RED+"Mg"+bcolors.ENDC+" |                                       |"+bcolors.YELLOW+"Al"+bcolors.ENDC+" |"+bcolors.YELLOW+"Si"+bcolors.ENDC+" | "+bcolors.YELLOW+"P"+bcolors.ENDC+" | "+bcolors.YELLOW+"S"+bcolors.ENDC+" |"+bcolors.YELLOW+"Cl"+bcolors.ENDC+" |"+bcolors.BLUE+"Ar"+bcolors.ENDC+" |")
@@ -71,13 +71,13 @@ if prm.name == None and prm.symbol == None and prm.number == None:
     print("6 |"+bcolors.RED+"Cs"+bcolors.ENDC+" |"+bcolors.RED+"Ba"+bcolors.ENDC+" |LAN|Hf |Ta | W |Re |Os |Ir |Pt |Au |Hg |"+bcolors.YELLOW+"Tl"+bcolors.ENDC+" |"+bcolors.YELLOW+"Pb"+bcolors.ENDC+" |"+bcolors.YELLOW+"Bi"+bcolors.ENDC+" |"+bcolors.YELLOW+"Po"+bcolors.ENDC+" |"+bcolors.YELLOW+"At"+bcolors.ENDC+" |"+bcolors.BLUE+"Rn"+bcolors.ENDC+" |")
     print("  |---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
     print("7 |"+bcolors.RED+"Fr"+bcolors.ENDC+" |"+bcolors.RED+"Ra"+bcolors.ENDC+" |ACT|Rf |Db |Sb |Bh |Hs |Mt |Ds |Rg |Cn |"+bcolors.YELLOW+"Nh"+bcolors.ENDC+" |"+bcolors.YELLOW+"Fl"+bcolors.ENDC+" |"+bcolors.YELLOW+"Mc"+bcolors.ENDC+" |"+bcolors.YELLOW+"Lv"+bcolors.ENDC+" |"+bcolors.YELLOW+"Ts"+bcolors.ENDC+" |"+bcolors.BLUE+"Og"+bcolors.ENDC+" |")
-    print("  -------------------------------------------------------------------------")
+    print("  +-----------------------------------------------------------------------+")
     print("")
-    print("              -------------------------------------------------------------")
+    print("              +-----------------------------------------------------------+")
     print("   Lanthanide |"+bcolors.GREEN+"La"+bcolors.ENDC+" |"+bcolors.GREEN+"Ce"+bcolors.ENDC+" |"+bcolors.GREEN+"Pr"+bcolors.ENDC+" |"+bcolors.GREEN+"Nd"+bcolors.ENDC+" |"+bcolors.GREEN+"Pm"+bcolors.ENDC+" |"+bcolors.GREEN+"Sm"+bcolors.ENDC+" |"+bcolors.GREEN+"Eu"+bcolors.ENDC+" |"+bcolors.GREEN+"Gd"+bcolors.ENDC+" |"+bcolors.GREEN+"Tb"+bcolors.ENDC+" |"+bcolors.GREEN+"Dy"+bcolors.ENDC+" |"+bcolors.GREEN+"Ho"+bcolors.ENDC+" |"+bcolors.GREEN+"Er"+bcolors.ENDC+" |"+bcolors.GREEN+"Tm"+bcolors.ENDC+" |"+bcolors.GREEN+"Yb |"+bcolors.GREEN+"Lu"+bcolors.ENDC+" |")
     print("              |---+---+---+---+---+---+---+---+---+---+---+---+---+---+---|")
     print("   Actinide   |"+bcolors.GREEN+"Ac"+bcolors.ENDC+" |"+bcolors.GREEN+"Th"+bcolors.ENDC+" |"+bcolors.GREEN+"Pa"+bcolors.ENDC+" | "+bcolors.GREEN+"U"+bcolors.ENDC+" |"+bcolors.GREEN+"Np"+bcolors.ENDC+" |"+bcolors.GREEN+"Pu"+bcolors.ENDC+" |"+bcolors.GREEN+"Am"+bcolors.ENDC+" |"+bcolors.GREEN+"Cm"+bcolors.ENDC+" |"+bcolors.GREEN+"Bk"+bcolors.ENDC+" |"+bcolors.GREEN+"Cf"+bcolors.ENDC+" |"+bcolors.GREEN+"Es"+bcolors.ENDC+" |"+bcolors.GREEN+"Fm"+bcolors.ENDC+" |"+bcolors.GREEN+"Md"+bcolors.ENDC+" |"+bcolors.GREEN+"No"+bcolors.ENDC+" |"+bcolors.GREEN+"Lw"+bcolors.ENDC+" |")
-    print("              -------------------------------------------------------------")
+    print("              +-----------------------------------------------------------+")
     print("")
 
 # details
